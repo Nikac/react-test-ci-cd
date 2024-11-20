@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # or any other version compatible with your project
+          node-version: '20' # or any other version compatible with your project
 
       # Install dependencies
       - name: Install dependencies
@@ -34,10 +34,16 @@ jobs:
           # Install AWS CLI
           sudo apt-get install awscli
 
+          # Debugging: Ensure that AWS CLI is installed and available
+          aws --version
+
           # Configure AWS CLI with secrets (will use GitHub Secrets for AWS credentials)
           aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws configure set default.region ${{ secrets.AWS_REGION }}
+
+          # Verify AWS CLI configuration (for debugging)
+          aws sts get-caller-identity
 
           # Sync the build folder with the S3 bucket
           aws s3 sync ./dist/ s3://${{ secrets.AWS_BUCKET_NAME }} --delete --acl public-read
