@@ -28,7 +28,7 @@ jobs:
       - name: Build the app
         run: npm run build
 
-      #debugging
+      # debugging
       - name: Configure AWS CLI
         run: aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
 
