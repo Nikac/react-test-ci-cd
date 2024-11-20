@@ -1,0 +1,32 @@
+.login-container {
+    width: 100%;
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-block {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    padding: 10px 0;
+}
+
+.input-el {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid black;
+}
+
+.form-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid black;
+}
+
+.error-msg {
+    color: red;
+}
