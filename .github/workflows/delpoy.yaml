@@ -28,6 +28,19 @@ jobs:
       - name: Build the app
         run: npm run build
 
+      #debugging
+      - name: Configure AWS CLI
+        run: aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+
+      - name: Configure AWS CLI
+        run: aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Configure AWS CLI region
+        run: aws configure set region ${{ secrets.AWS_REGION }}
+
+      - name: Configure AWS CLI region
+        run: aws configure set bucket name ${{ secrets.AWS_BUCKET_NAME }}
+
       # debugging
       - name: Check AWS S3 Bucket List
         run: aws s3 ls
